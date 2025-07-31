@@ -1,0 +1,5 @@
+# Exclude IDE-specific configuration files
+.idea/
+
+# Exclude Environment Variables
+.env
