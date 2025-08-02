@@ -3,3 +3,6 @@
 
 # Exclude Environment Variables
 .env
+
+# Exclude dev configuration file
+config/app.dev.yaml

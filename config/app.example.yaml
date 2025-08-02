@@ -1,0 +1,9 @@
+server:
+  http_port: 8080
+postgres:
+  pg_host: "postgres"
+  pg_port: 5432
+  pg_user: "postgres"
+  pg_password: "your_password"
+  pg_name: "auth"
+  pg_sslmode: "disable"
