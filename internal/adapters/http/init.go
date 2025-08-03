@@ -11,7 +11,7 @@ import (
 func StartServer(cfg *config.Config, handler *product.Handler) error {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/products", handler.GetProducts)
+	mux.HandleFunc("/api/v1/products", handler.GetProducts)
 
 	server := &http.Server{
 		Addr:    fmt.Sprintf(":%d", cfg.Server.Port),
