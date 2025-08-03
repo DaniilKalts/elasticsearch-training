@@ -4,18 +4,18 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/DaniilKalts/elasticsearch-training/internal/application/product"
+	"github.com/DaniilKalts/elasticsearch-training/internal/application"
 )
 
-type handler struct {
-	svc product.Service
+type Handler struct {
+	svc application.ProductService
 }
 
-func NewHandler(svc product.Service) *handler {
-	return &handler{svc: svc}
+func NewHandler(svc application.ProductService) *Handler {
+	return &Handler{svc: svc}
 }
 
-func (h *handler) GetProducts(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) GetProducts(w http.ResponseWriter, r *http.Request) {
 	products, err := h.svc.GetProducts()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

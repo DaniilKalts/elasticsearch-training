@@ -3,14 +3,15 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	"github.com/DaniilKalts/elasticsearch-training/internal/application"
 	"time"
 
 	_ "github.com/lib/pq"
 	"github.com/pressly/goose/v3"
+
+	"github.com/DaniilKalts/elasticsearch-training/internal/application/config"
 )
 
-func InitDB(cfg *application.AppConfig) (*sql.DB, error) {
+func InitDB(cfg *config.Config) (*sql.DB, error) {
 	dsn := fmt.Sprintf(
 		"host=%s port=%d user=%s password=%s dbname=%s sslmode=%s",
 		cfg.Database.Host,

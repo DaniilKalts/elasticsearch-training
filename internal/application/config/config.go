@@ -1,4 +1,4 @@
-package application
+package config
 
 import (
 	"errors"
@@ -21,14 +21,14 @@ type PostgresConfig struct {
 	SSLMode  string `mapstructure:"db_sslmode"`
 }
 
-type AppConfig struct {
+type Config struct {
 	Server   HttpConfig     `mapstructure:"server"`
 	Database PostgresConfig `mapstructure:"database"`
 }
 
-var cfg AppConfig
+var cfg Config
 
-func Load() (*AppConfig, error) {
+func LoadConfig() (*Config, error) {
 	v := viper.New()
 
 	v.SetDefault("http_port", 8080)
