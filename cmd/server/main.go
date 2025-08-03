@@ -24,7 +24,11 @@ func main() {
 	defer db.Close()
 
 	productRepo := repository.NewProductRepository(db)
-	productSvc := application.NewProductService(productRepo)
+
+	esClient := database.NewElasticClient(cfg)
+	productESRepo := repository.NewProductElasticRepository(esClient)
+
+	productSvc := application.NewProductService(productRepo, productESRepo)
 	productHandler := httpProduct.NewHandler(productSvc)
 
 	if err := http.StartServer(cfg, productHandler); err != nil {
