@@ -7,3 +7,6 @@ postgres:
   pg_password: "your_password"
   pg_name: "elastic"
   pg_sslmode: "disable"
+elastic:
+  es_host: "elasticsearch"
+  es_port: 9200

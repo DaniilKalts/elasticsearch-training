@@ -21,9 +21,15 @@ type PostgresConfig struct {
 	SSLMode  string `mapstructure:"pg_sslmode"`
 }
 
+type ElasticConfig struct {
+	Host string `mapstructure:"es_host"`
+	Port int    `mapstructure:"es_port"`
+}
+
 type Config struct {
 	Server   HttpConfig     `mapstructure:"server"`
 	Database PostgresConfig `mapstructure:"postgres"`
+	Elastic  ElasticConfig  `mapstructure:"elastic"`
 }
 
 var cfg Config
@@ -33,12 +39,15 @@ func LoadConfig() (*Config, error) {
 
 	v.SetDefault("http_port", 8080)
 
-	v.SetDefault("pg_host", "localhost")
+	v.SetDefault("pg_host", "postgres")
 	v.SetDefault("pg_port", 5432)
 	v.SetDefault("pg_user", "postgres")
 	v.SetDefault("pg_password", "your_password")
 	v.SetDefault("pg_name", "elastic")
 	v.SetDefault("pg_sslmode", "disable")
+
+	v.SetDefault("es_host", "elasticsearch")
+	v.SetDefault("es_port", 9200)
 
 	v.SetConfigName("app.dev")
 	v.SetConfigType("yaml")

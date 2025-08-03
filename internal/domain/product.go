@@ -25,15 +25,15 @@ const (
 )
 
 type Product struct {
-	ID          uuid.UUID
-	Name        string
-	Description string
-	Price       float64
-	Available   bool
-	Category    Category
-	Brand       Brand
-	Rating      float64
+	ID          uuid.UUID `json:"id"`
+	Name        string    `json:"name"`
+	Description string    `json:"description"`
+	Price       float64   `json:"price"`
+	Available   bool      `json:"available"`
+	Category    Category  `json:"category"`
+	Brand       Brand     `json:"brand"`
+	Rating      float64   `json:"rating"`
 
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }

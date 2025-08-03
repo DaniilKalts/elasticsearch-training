@@ -2,7 +2,7 @@
 
 build:
 	@echo -e "Building image...\n"
-	docker build -t auth-api:latest .
+	docker build -t elasticsearch-training-api:latest .
 
 up: build
 	@echo -e "Running images...\n"
