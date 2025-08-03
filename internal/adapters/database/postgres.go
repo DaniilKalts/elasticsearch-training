@@ -35,7 +35,7 @@ func InitDB(cfg *config.Config) (*sql.DB, error) {
 	db.SetMaxOpenConns(25)
 	db.SetMaxIdleConns(25)
 
-	migrationsDir := "/db/migrations"
+	migrationsDir := "./db/migrations"
 	if err := initMigrations(db, migrationsDir); err != nil {
 		return nil, err
 	}

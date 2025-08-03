@@ -3,7 +3,7 @@
 .gitignore
 
 # Environment Variables
-.env
+.env*
 
 # Example Config
 config/app.example.yaml

@@ -18,5 +18,5 @@ func NewProductService(repo repository.ProductRepository) ProductService {
 }
 
 func (s *productService) GetProducts() ([]*domain.Product, error) {
-	return s.GetProducts()
+	return s.repo.GetProducts()
 }

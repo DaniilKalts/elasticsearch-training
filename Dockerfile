@@ -10,7 +10,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
 FROM scratch
 WORKDIR /app
 COPY --from=builder /app/elasticsearch-training .
-COPY --from=builder /app/config ./config
 USER 1000
 EXPOSE 8080
 ENTRYPOINT ["./elasticsearch-training"]

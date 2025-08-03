@@ -1,0 +1,14 @@
+FROM postgres:17
+
+# Install build tools
+RUN apt-get update && apt-get install -y \
+    git \
+    build-essential \
+    postgresql-server-dev-17 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Build pg_uuidv7 from source
+RUN git clone https://github.com/fboulnois/pg_uuidv7.git /tmp/pg_uuidv7 \
+    && cd /tmp/pg_uuidv7 \
+    && make && make install \
+    && rm -rf /tmp/pg_uuidv7
