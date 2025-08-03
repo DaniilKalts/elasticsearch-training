@@ -13,17 +13,17 @@ type HttpConfig struct {
 }
 
 type PostgresConfig struct {
-	Host     string `mapstructure:"db_host"`
-	Port     int    `mapstructure:"db_port"`
-	User     string `mapstructure:"db_user"`
-	Password string `mapstructure:"db_password"`
-	Name     string `mapstructure:"db_name"`
-	SSLMode  string `mapstructure:"db_sslmode"`
+	Host     string `mapstructure:"pg_host"`
+	Port     int    `mapstructure:"pg_port"`
+	User     string `mapstructure:"pg_user"`
+	Password string `mapstructure:"pg_password"`
+	Name     string `mapstructure:"pg_name"`
+	SSLMode  string `mapstructure:"pg_sslmode"`
 }
 
 type Config struct {
 	Server   HttpConfig     `mapstructure:"server"`
-	Database PostgresConfig `mapstructure:"database"`
+	Database PostgresConfig `mapstructure:"postgres"`
 }
 
 var cfg Config
@@ -33,16 +33,16 @@ func LoadConfig() (*Config, error) {
 
 	v.SetDefault("http_port", 8080)
 
-	v.SetDefault("db_host", "localhost")
-	v.SetDefault("db_port", 5432)
-	v.SetDefault("db_user", "postgres")
-	v.SetDefault("db_password", "dbpassword")
-	v.SetDefault("db_name", "keycloak")
-	v.SetDefault("db_sslmode", "disable")
+	v.SetDefault("pg_host", "localhost")
+	v.SetDefault("pg_port", 5432)
+	v.SetDefault("pg_user", "postgres")
+	v.SetDefault("pg_password", "your_password")
+	v.SetDefault("pg_name", "elastic")
+	v.SetDefault("pg_sslmode", "disable")
 
 	v.SetConfigName("app.dev")
 	v.SetConfigType("yaml")
-	v.AddConfigPath("/config")
+	v.AddConfigPath("./config")
 
 	if err := v.ReadInConfig(); err != nil {
 		if !errors.Is(err, viper.ConfigFileNotFoundError{}) {

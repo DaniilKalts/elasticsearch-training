@@ -1,0 +1,16 @@
+# Git metadata
+.git
+.gitignore
+
+# Environment Variables
+.env
+
+# Example Config
+config/app.example.yaml
+
+# IDE
+.idea/
+
+# Docker files—Compose and Dockerfile aren’t needed in the build context
+docker-compose.yaml
+Dockerfile

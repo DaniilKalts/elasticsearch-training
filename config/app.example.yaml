@@ -5,5 +5,5 @@ postgres:
   pg_port: 5432
   pg_user: "postgres"
   pg_password: "your_password"
-  pg_name: "auth"
+  pg_name: "elastic"
   pg_sslmode: "disable"
